@@ -1,0 +1,13 @@
+CC=gcc 
+CFLAGS=-Wall
+
+zero-one: zero-one.o
+	cc -o zero-one zero-one.o
+zero-one.o: zero-one.c
+	cc -c zero-one.c
+
+clean:
+	rm -rf *o zero-one
+
+run: zero-one
+	./zero-one
