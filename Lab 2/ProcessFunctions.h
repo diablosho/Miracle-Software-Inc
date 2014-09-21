@@ -5,31 +5,38 @@
 #ifndef PROCESS_FUNCTIONS_H_INCLUDED
 #define PROCESS_FUNCTIONS_H_INCLUDED
 
-//	Functions between here...
-#define	CHILD				0
-#define	INIT				0
-#define	INITIAL_CHILDREN	0
-#define	SUCCESS				0
-#define	PARENT				1
-#define	FORKING_ERROR		2
+#define CHILD		0
+#define INIT		0
+#define SUCCESS		0
+#define	READ_PIPE	0
+#define PARENT		1
+#define	WRITE_PIPE	1
+#define ERROR		2
 
-int		childExitValue		=	INIT,
-		childPID			=	PARENT,
-		retval				=	SUCCESS,
-		childRetVal			=	INIT,
-		typeOfProcess		=	PARENT;
-
-int		ForkMe()
+void	GetPipeHandle(int pipes[], int typeOfCommunication)
 {
-	childPID = fork();
-	typeOfProcess = GetProcessType(childPID);
-	return SUCCESS;
+	switch (typeOfCommunication)
+	{
+		case READ_PIPE:
+		{
+			dup2(stdin, pipes[READ_PIPE]);	//	So we can read from parent with stdin
+			close(pipes[WRITE_PIPE]);
+			break;
+		}
+		case WRITE_PIPE:
+		{
+			dup2(stdout, pipes[WRITE_PIPE]);	//	So we can read from parent with stdin
+			close(pipes[READ_PIPE]);
+			break;
+		}
+	}
 }
+
 int		GetProcessType(int childPID)
 {
 	if (childPID > 0)		return PARENT;
 	else if (childPID == 0)	return CHILD;
-	else if (childPID < 0)	return FORKING_ERROR;
+	else if (childPID < 0)	return ERROR;
 }
 char**	CreateNewARGV(int argc, char* argv[])	//	Malloc the memory space for newARGV, so that it can take argv's values without memory faults
 {

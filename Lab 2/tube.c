@@ -1,56 +1,52 @@
 #include "ProcessFunctions.h"
+#define FIRST_FORK	0
+#define	SECOND_FORK	1
 
 static int pipes;
 
 int main(int argc, char* argv[])
 {
-	int typeProcess1	=	PARENT,
-		typeProcess2	=	PARENT;
-	int pipes[2],	//	READ = 0, WRITE = 1
-		pid1 = PARENT,
-		pid2 = PARENT;
+	int typeProcess[2] = { PARENT, PARENT };
+	int pipes[2];	//	READ = 0, WRITE = 1
+	int childPID[2]	= { PARENT, PARENT };
 	char** command;
 	
 	int retvalPipe = pipe(pipes);
-	
-	dup2(stdout, pipes[1]);	//	So we can write to children with stdout
-	close(pipes[0]);
+	childPID[FIRST_FORK] = fork();
+	typeProcess[FIRST_FORK] = GetTypeProcess(childPID[FIRST_FORK]);
 
-	pid1 = fork();
-
-	switch (typeProcess1 = GetTypeProcess(pid1))
+	switch (typeProcess[FIRST_FORK])
 	{
 		case CHILD:	//	Process first command
 		{
-			dup2(stdin, pipes[0]);	//	So we can read from parent with stdin
-			close(pipes[1]);
+			ProcessChild(FIRST_FORK);
+			GetPipeHandle(pipes, READ_PIPE);
 			command = GetCommand();
 			RunCommand(command);
 			break;
 		}
 		case PARENT:
 		{
-			pid2 = fork();
-			if (pid2 == CHILD)
+			childPID[SECOND_FORK] = fork();
+			if (childPID[SECOND_FORK] == CHILD)
 			{
-				dup2(stdin, 0);
-				close(pipes[1]);
+				GetPipeHandle(pipes, WRITE_PIPE);
 				command = GetCommand();
 				RunCommand(command);
 				break;
 			}
 
-			while (!(pid1 > 0 && pid2 > 0));
+			while (!(childPID[FIRST_FORK] > 0 && childPID[SECOND_FORK] > 0));
 			
-			fprintf("Child1 PID:\t%i\n", pid1);
-			fprintf("Child2 PID:\t%i\n", pid2);
+			fprintf("Child1 PID:\t%i\n", childPID[FIRST_FORK]);
+			fprintf("Child2 PID:\t%i\n", childPID[SECOND_FORK]);
 						
 			command = ParseCommands();
 			SendCommands(command);
 			
 			break;
 		}
-		case FORKING_ERROR:	{	break;	}
+		case ERROR:	{	break;	}
 	}
 
 	return 0;
