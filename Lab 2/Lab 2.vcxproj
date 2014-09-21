@@ -75,6 +75,9 @@
   <ItemGroup>
     <None Include="Lab 2 Instructions.rtf" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BriansHeaderFile.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,67 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/mman.h>
 
 #define	CHILD	0
 #define	INIT	0
+#define	SUCCESS	0
 #define	PARENT	1
 #define	ERROR	2
 
-typedef	struct COMMAND_ARGUMENTS
+int GetProcessType(int childPID)
 {
-	int		argc;
-	char	*argv;
-	char	**envp;
-} structArgs;
-
-void PrintChildReturnValueOnStderr(int childPID)
-{
-	fprintf(stderr, "Child PID Return Value:\t%i\n", childPID);
+	if (childPID > 0)		return PARENT;
+	else if (childPID == 0)	return CHILD;
+	else if (childPID < 0)	return ERROR;
 }
 
-structArgs ConstructChildExecARGS(structArgs originalArgs)
+char** CreateNewARGV(int argc, char* argv[])	//	Malloc the memory space for newARGV, so that it can take argv's values without memory faults
 {
-	char* newARGV		=	(char*)malloc(sizeof(char)	*	(originalArgs.argc - 1));
-	int newArgc = 1;
-		
-	for (newArgc = 1; newArgc < originalArgs.argc; newArgc++)
-		newARGV[newArgc] = originalArgs.argv[newArgc + 1];
-		
-	structArgs newArgs = { newArgc, newARGV, originalArgs.envp };
-	
-	return newArgs;
+	int newARGC = 0;
+	char** newARGV = (char**)malloc(sizeof(char*)*(argc-1));
+
+	for (newARGC = 0; newARGC < argc; newARGC++)
+	{
+		newARGV[newARGC] = (char*)malloc(sizeof(argv[newARGC + 1]));
+		newARGV[newARGC] = argv[newARGC + 1];
+	}
+	return newARGV;
 }
 
-void ExecuteProcess(structArgs newProcessArgs)
+int main(int argc, char *argv[])
 {
-	//	execve(const char* path, const char* args[], const char* envp[]);
-	//	execvp(const char* file, const char* args[]);
-	execvp(newProcessArgs.argv[1], newProcessArgs.argv);
-}
-
-int main(int argc, char *argv, char** envp)
-{
-	structArgs args = { argc, argv, envp };
 	int	typeOfProcess = PARENT;
 	int	childReturnValue = INIT;
+	char** newARGV;
+	int argIndex = 0;
+
 	int childPID = fork();
-
-	if (childPID > 0)		typeOfProcess = PARENT;
-	else if (childPID == 0)	typeOfProcess = CHILD;
-	else if (childPID < 0)	typeOfProcess = ERROR;
-
-	switch (typeOfProcess)
+	
+	switch (GetProcessType(childPID))
 	{
-		case PARENT:
-		{
-			printf("Child PID:\t\t%i\n", childPID);
-			wait(&childReturnValue);
-			printf("Child Return Value:\t%i\n", childReturnValue);
-			break;
-		}
 		case CHILD:
 		{
-			if (args.argc >= 2)	ExecuteProcess(ConstructChildExecARGS(args));
+			newARGV = CreateNewARGV(argc, argv);
+			execv(newARGV[0], newARGV);
+			exit(SUCCESS);
+		}
+		case PARENT:
+		{
+			fprintf(stderr, "%s:  $$ = %i\n", argv[1], childPID);
+			waitpid(childPID, &childReturnValue, NULL);
+			fprintf(stderr, "%s:  $? = %i\n", argv[1], childReturnValue);
 			break;
 		}
 		case ERROR:
