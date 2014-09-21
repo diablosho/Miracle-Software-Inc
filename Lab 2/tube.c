@@ -9,19 +9,35 @@ void ProcessParent(int* childPID, structArgs cmdArgs)
 	fprintf("Child1 PID:\t%i\n", childPID[FIRST_FORK]);
 	fprintf("Child2 PID:\t%i\n", childPID[SECOND_FORK]);
 
-	structArgs* listCommands	=	CreateCommandList(cmdArgs.argc, cmdArgs.argv);
-	SendCommands(cmdArgs);
+	structArgs* listCommands = CreateCommandList(cmdArgs.argc, cmdArgs.argv);
+	int cmdIndex = 0;
+	
+	int forkID = FIRST_FORK;
+	for (cmdIndex = 0; cmdIndex < sizeof(listCommands); cmdIndex++)
+	{
+		switch (forkID)
+		{
+			case FIRST_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = SECOND_FORK;	break;
+			case SECOND_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = FIRST_FORK;	break;
+		}			
+	}
 }
 
 void ProcessChild(int childNum)
 {
 	switch (childNum)
 	{
-	case FIRST_FORK:	GetPipeHandle(pipes, READ_PIPE); break;
-	case SECOND_FORK:	GetPipeHandle(pipes, WRITE_PIPE); break;
+		case FIRST_FORK:
+		{
+			GetPipeHandle(pipes, READ_PIPE);
+			break;
+		}
+		case SECOND_FORK:
+		{
+			GetPipeHandle(pipes, READ_PIPE);
+			break;
+		}
 	}
-	
-	RunCommand(command);
 }
 
 int main(int argc, char* argv[])
@@ -39,7 +55,6 @@ int main(int argc, char* argv[])
 		case CHILD:	//	Child 1 reads from stdin and executes the program
 		{
 			ProcessChild(FIRST_FORK);
-			
 			break;
 		}
 		case PARENT:
@@ -47,16 +62,14 @@ int main(int argc, char* argv[])
 			childPID[SECOND_FORK] = fork();
 			if (childPID[SECOND_FORK] == CHILD)	//	Child 2 reads from stdin and executes the program
 			{
-				GetPipeHandle(pipes, READ_PIPE);
-				command = GetCommand();
-				RunCommand(command);
+				ProcessChild(SECOND_FORK);
 				break;
 			}
 
 			while (!(childPID[FIRST_FORK] > 0 && childPID[SECOND_FORK] > 0));
 			
-			ProcessParent();
-
+			structArgs originalArgs = { argc, argv, NULL };
+			ProcessParent(childPID, originalArgs);
 			break;
 		}
 		case ERROR:	{	break;	}

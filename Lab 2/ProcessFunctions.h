@@ -74,32 +74,26 @@ structArgs*	CreateCommandList(int argc, char* argv[])
 			if (argv[lastPosition] == ",")
 			{
 				lastPosition++;
+				cmdArgs[commandNumber].argc = newArgc;
+				int i = 0;
+				for (i = 0; i < newArgc; i++)
+				{
+					newArgv[i] = (char*)malloc(sizeof(argv[startingPosition + i])+1);
+					newArgv[i] = argv[startingPosition + i];
+					strcat(command, newArgv[i]);
+					strcat(command, " ");
+				}
+				structArgs newCmd = { newArgc, newArgv, command };
+				cmdArgs[commandNumber] = newCmd;
+				commandNumber++;
 				break;
 			}
-		}
-
-		cmdArgs[commandNumber].argc = newArgc;
-		int i = 0;
-		for (i = 0; i < newArgc; i++)
-		{
-			newArgv[i] = (char*)malloc(sizeof(argv[startingPosition + i]));
-			newArgv[i] = argv[startingPosition + i];
-			sprintf(command, newArgv[i]);
-			sprintf(command, " ");
-		}
-		structArgs newCmd = { newArgc, newArgv, command };
-		cmdArgs[commandNumber] = newCmd;
-		commandNumber++;
+		}		
 	} while (lastPosition < argc);
 	return cmdArgs;
 }
 
-char**	ParseCommand(structArgs cmdArgs)
-{
-	
-	return NULL;
-}
-void	SendCommand(structArgs cmdArgs)	//	Used to send a complete command to a child process
+void	SendCommand(int destFork, structArgs cmdArgs)	//	Used to send a complete command to a child process
 {
 	
 }
