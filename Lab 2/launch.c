@@ -1,4 +1,4 @@
-#include "Lab2.h"
+#include "ProcessFunctions.h"
 
 int ProcessChild(int argc, char* argv[], int typeOfProcess, int childPID)
 {
@@ -16,18 +16,18 @@ int ProcessParent(int argc, char* argv[], int typeOfProcess, int childPID)
 
 int main(int argc, char *argv[])
 {
-	ForkMe();
+	ForkMe();	//	Custom function I created inside my ProcessFunctions.h Header File
 
 	switch (typeOfProcess)
 	{
 		case CHILD:
 		{
-			ProcessChild(argc, argv, typeOfProcess, childPID);
+			ProcessChild(argc, argv, CHILD, childPID);
 			break;
 		}
 		case PARENT:
 		{
-			ProcessParent(argc, argv, typeOfProcess, childPID);
+			ProcessParent(argc, argv, PARENT, childPID);
 			break;
 		}
 		case FORKING_ERROR:

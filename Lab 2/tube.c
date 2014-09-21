@@ -1,8 +1,6 @@
-#include "BriansHeaderFile.h"
+#include "ProcessFunctions.h"
 
 static int pipes;
-
-
 
 int main(int argc, char* argv[])
 {
@@ -52,7 +50,7 @@ int main(int argc, char* argv[])
 			
 			break;
 		}
-		case ERROR:	{	break;	}
+		case FORKING_ERROR:	{	break;	}
 	}
 
 	return 0;

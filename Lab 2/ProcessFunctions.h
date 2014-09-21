@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#ifndef BRIAN_H_INCLUDED
-#define BRIAN_H_INCLUDED
+#ifndef PROCESS_FUNCTIONS_H_INCLUDED
+#define PROCESS_FUNCTIONS_H_INCLUDED
 
 //	Functions between here...
 #define	CHILD				0
@@ -18,7 +18,6 @@ int		childExitValue		=	INIT,
 		retval				=	SUCCESS,
 		childRetVal			=	INIT,
 		typeOfProcess		=	PARENT;
-		childProcessCounter =	INITIAL_CHILDREN;
 
 int		ForkMe()
 {
