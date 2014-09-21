@@ -4,33 +4,50 @@
 
 static int pipes;
 
+void ProcessParent(int* childPID, structArgs cmdArgs)
+{
+	fprintf("Child1 PID:\t%i\n", childPID[FIRST_FORK]);
+	fprintf("Child2 PID:\t%i\n", childPID[SECOND_FORK]);
+
+	structArgs* listCommands	=	CreateCommandList(cmdArgs.argc, cmdArgs.argv);
+	SendCommands(cmdArgs);
+}
+
+void ProcessChild(int childNum)
+{
+	switch (childNum)
+	{
+	case FIRST_FORK:	GetPipeHandle(pipes, READ_PIPE); break;
+	case SECOND_FORK:	GetPipeHandle(pipes, WRITE_PIPE); break;
+	}
+	
+	RunCommand(command);
+}
+
 int main(int argc, char* argv[])
 {
 	int typeProcess[2] = { PARENT, PARENT };
 	int pipes[2];	//	READ = 0, WRITE = 1
 	int childPID[2]	= { PARENT, PARENT };
-	char** command;
-	
+		
 	int retvalPipe = pipe(pipes);
 	childPID[FIRST_FORK] = fork();
 	typeProcess[FIRST_FORK] = GetTypeProcess(childPID[FIRST_FORK]);
 
 	switch (typeProcess[FIRST_FORK])
 	{
-		case CHILD:	//	Process first command
+		case CHILD:	//	Child 1 reads from stdin and executes the program
 		{
 			ProcessChild(FIRST_FORK);
-			GetPipeHandle(pipes, READ_PIPE);
-			command = GetCommand();
-			RunCommand(command);
+			
 			break;
 		}
 		case PARENT:
 		{
 			childPID[SECOND_FORK] = fork();
-			if (childPID[SECOND_FORK] == CHILD)
+			if (childPID[SECOND_FORK] == CHILD)	//	Child 2 reads from stdin and executes the program
 			{
-				GetPipeHandle(pipes, WRITE_PIPE);
+				GetPipeHandle(pipes, READ_PIPE);
 				command = GetCommand();
 				RunCommand(command);
 				break;
@@ -38,12 +55,8 @@ int main(int argc, char* argv[])
 
 			while (!(childPID[FIRST_FORK] > 0 && childPID[SECOND_FORK] > 0));
 			
-			fprintf("Child1 PID:\t%i\n", childPID[FIRST_FORK]);
-			fprintf("Child2 PID:\t%i\n", childPID[SECOND_FORK]);
-						
-			command = ParseCommands();
-			SendCommands(command);
-			
+			ProcessParent();
+
 			break;
 		}
 		case ERROR:	{	break;	}
