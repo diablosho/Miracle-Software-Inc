@@ -1,62 +1,41 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "Lab2.h"
 
-#define	CHILD	0
-#define	INIT	0
-#define	SUCCESS	0
-#define	PARENT	1
-#define	ERROR	2
-
-int GetProcessType(int childPID)
+int ProcessChild(int argc, char* argv[], int typeOfProcess, int childPID)
 {
-	if (childPID > 0)		return PARENT;
-	else if (childPID == 0)	return CHILD;
-	else if (childPID < 0)	return ERROR;
+	char** newARGV	=	CreateNewARGV(argc, argv);
+	execv(newARGV[0], newARGV);
+	return childExitValue;
 }
 
-char** CreateNewARGV(int argc, char* argv[])	//	Malloc the memory space for newARGV, so that it can take argv's values without memory faults
+int ProcessParent(int argc, char* argv[], int typeOfProcess, int childPID)
 {
-	int newARGC = 0;
-	char** newARGV = (char**)malloc(sizeof(char*)*(argc-1));
-
-	for (newARGC = 0; newARGC < argc; newARGC++)
-	{
-		newARGV[newARGC] = (char*)malloc(sizeof(argv[newARGC + 1]));
-		newARGV[newARGC] = argv[newARGC + 1];
-	}
-	return newARGV;
+	fprintf(stderr, "%s:  $$ = %i\n", argv[1], childPID);
+	waitpid(childPID, &childExitValue, NULL);
+	fprintf(stderr, "%s:  $? = %i\n", argv[1], childExitValue);
 }
 
 int main(int argc, char *argv[])
 {
-	int	typeOfProcess = PARENT;
-	int	childReturnValue = INIT;
-	char** newARGV;
-	int argIndex = 0;
+	ForkMe();
 
-	int childPID = fork();
-	
-	switch (GetProcessType(childPID))
+	switch (typeOfProcess)
 	{
 		case CHILD:
 		{
-			newARGV = CreateNewARGV(argc, argv);
-			execv(newARGV[0], newARGV);
-			exit(SUCCESS);
+			ProcessChild(argc, argv, typeOfProcess, childPID);
+			break;
 		}
 		case PARENT:
 		{
-			fprintf(stderr, "%s:  $$ = %i\n", argv[1], childPID);
-			waitpid(childPID, &childReturnValue, NULL);
-			fprintf(stderr, "%s:  $? = %i\n", argv[1], childReturnValue);
+			ProcessParent(argc, argv, typeOfProcess, childPID);
 			break;
 		}
-		case ERROR:
+		case FORKING_ERROR:
 		{
-			printf("ERROR\n");
-			break;
+			printf("FORKING ERROR\n");
+			return FORKING_ERROR;
 		}
 	}
 
-	return 0;
+	return SUCCESS;
 }

@@ -44,6 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsC</CompileAs>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -69,14 +70,14 @@
     <ClCompile Include="tube.c" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="makefile.txt" />
     <Text Include="README.TXT" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Lab 2 Instructions.rtf" />
+    <None Include="makefile" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BriansHeaderFile.h" />
+    <ClInclude Include="Lab2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

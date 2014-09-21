@@ -23,9 +23,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="makefile.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="README.TXT">
       <Filter>Resource Files</Filter>
     </Text>
@@ -34,9 +31,12 @@
     <None Include="Lab 2 Instructions.rtf">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="makefile">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BriansHeaderFile.h">
+    <ClInclude Include="Lab2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

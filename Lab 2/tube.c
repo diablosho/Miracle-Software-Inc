@@ -1,55 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-
-#define	CHILD	0
-#define PARENT	1
-#define ERROR	2
+#include "BriansHeaderFile.h"
 
 static int pipes;
 
-char** CreateNewARGV(int argc, char* argv[])	//	Malloc the memory space for newARGV, so that it can take argv's values without memory faults
-{
-	int newARGC = 0;
-	char** newARGV = (char**)malloc(sizeof(char*)*(argc - 1));	//	Initialize enough memory for [argc-1] strings (A.K.A. char*);  char** = char[]* = char[][]
 
-	for (newARGC = 0; newARGC < argc; newARGC++)
-	{
-		newARGV[newARGC] = (char*)malloc(sizeof(argv[newARGC + 1]));
-		newARGV[newARGC] = argv[newARGC + 1];
-	}
-	
-	return newARGV;	//	Return pointer to a char**
-}
-
-char** ParseCommands()
-{
-	return NULL;
-}
-
-void SendCommands(char** commands)
-{
-
-}
-
-char* GetCommand()
-{
-	return NULL;
-}
-
-void RunCommand(char* command)	//	First Child does first command, second child does second command...
-{
-	//execve()
-}
-
-int GetTypeProcess(int pid)
-{
-	int typeProcess = PARENT;
-	if (pid < 0)		typeProcess = ERROR;
-	else if (pid == 0)	typeProcess = CHILD;
-	else if (pid > 0)	typeProcess = PARENT;
-	return typeProcess;
-}
 
 int main(int argc, char* argv[])
 {
