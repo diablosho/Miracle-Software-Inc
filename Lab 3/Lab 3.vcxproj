@@ -69,9 +69,13 @@
   <ItemGroup>
     <None Include="D:\Google Drive\School\COMP 322\COMP-322\Lab Assignments\Lab 3_  Catcher.gdoc" />
     <None Include="D:\Google Drive\School\COMP 322\COMP-322\Lab Assignments\Lab3_ sig_name2number.c.gdoc" />
+    <None Include="makefile" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="catcher.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
