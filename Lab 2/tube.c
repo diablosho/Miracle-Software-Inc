@@ -6,35 +6,39 @@ static int pipes;
 
 void ProcessParent(int* childPID, structArgs cmdArgs)
 {
-	fprintf("Child1 PID:\t%i\n", childPID[FIRST_FORK]);
-	fprintf("Child2 PID:\t%i\n", childPID[SECOND_FORK]);
+	fprintf(stdout, "Child1 PID:\t%i\n", childPID[FIRST_FORK]);
+	fprintf(stdout, "Child2 PID:\t%i\n", childPID[SECOND_FORK]);
 
-	structArgs* listCommands = CreateCommandList(cmdArgs.argc, cmdArgs.argv);
+	char*** listCommands = CreateCommandList(cmdArgs);
+	fprintf(stdout, "listCommands[0].command = %s\n", listCommands[0][0]);	//	ERRORS HERE
+	fprintf(stdout, "listCommands[1].command = %s\n", listCommands[0][1]);	//	ERRORS HERE
+	
 	int cmdIndex = 0;
 	
 	int forkID = FIRST_FORK;
 	for (cmdIndex = 0; cmdIndex < sizeof(listCommands); cmdIndex++)
 	{
-		switch (forkID)
+		/*switch (forkID)
 		{
-			case FIRST_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = SECOND_FORK;	break;
-			case SECOND_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = FIRST_FORK;	break;
-		}			
+			case FIRST_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = SECOND_FORK;	continue;
+			case SECOND_FORK:	SendCommand(forkID, listCommands[cmdIndex]);	forkID = FIRST_FORK;	continue;
+		}*/			
 	}
 }
 
 void ProcessChild(int childNum)
 {
+	fprintf(stdout, "Child %i beginning processing...\n", childNum);
 	switch (childNum)
 	{
 		case FIRST_FORK:
 		{
-			GetPipeHandle(pipes, READ_PIPE);
+			//GetPipeHandle(pipes, READ_PIPE);
 			break;
 		}
 		case SECOND_FORK:
 		{
-			GetPipeHandle(pipes, READ_PIPE);
+			//GetPipeHandle(pipes, READ_PIPE);
 			break;
 		}
 	}
@@ -48,13 +52,13 @@ int main(int argc, char* argv[])
 		
 	int retvalPipe = pipe(pipes);
 	childPID[FIRST_FORK] = fork();
-	typeProcess[FIRST_FORK] = GetTypeProcess(childPID[FIRST_FORK]);
+	typeProcess[FIRST_FORK] = GetProcessType(childPID[FIRST_FORK]);
 
 	switch (typeProcess[FIRST_FORK])
 	{
 		case CHILD:	//	Child 1 reads from stdin and executes the program
 		{
-			ProcessChild(FIRST_FORK);
+			//ProcessChild(FIRST_FORK);
 			break;
 		}
 		case PARENT:
@@ -62,13 +66,14 @@ int main(int argc, char* argv[])
 			childPID[SECOND_FORK] = fork();
 			if (childPID[SECOND_FORK] == CHILD)	//	Child 2 reads from stdin and executes the program
 			{
-				ProcessChild(SECOND_FORK);
+				//ProcessChild(SECOND_FORK);
 				break;
 			}
 
-			while (!(childPID[FIRST_FORK] > 0 && childPID[SECOND_FORK] > 0));
-			
+			//while (!(childPID[FIRST_FORK] > 0 && childPID[SECOND_FORK] > 0));
+			fprintf(stdout, "Parent beginning processing...\n");
 			structArgs originalArgs = { argc, argv, NULL };
+			fprintf(stdout, "Original Structure created...\n");
 			ProcessParent(childPID, originalArgs);
 			break;
 		}

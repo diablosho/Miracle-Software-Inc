@@ -56,41 +56,54 @@ char**	CreateNewARGV(int argc, char* argv[])	//	Malloc the memory space for newA
 	}
 	return newARGV;
 }
-structArgs*	CreateCommandList(int argc, char* argv[])
+
+char*	CombineStrings(char** stringsToCombine, int countStrings, int startingPosition)
 {
-	structArgs*	cmdArgs;
-	char**		newArgv;
-	char*		command;
-	int			commandNumber = 0;
-	int			startingPosition	=	0;
-	int			lastPosition = 0;
-	int			newArgc = 0;
-		
-	do
+	int newStringSize = 0;
+	int index = 0;
+	
+	fprintf(stdout, "Calculating the string size\n");
+
+	for (index = 0; index < countStrings; index++)
+		newStringSize += (sizeof(stringsToCombine[startingPosition + index]) + 1);	//	+1 for a ' ' after each string
+
+	char* newString = (char*)calloc(newStringSize, NULL);	//	New String is now allocated to concatenate [countStrings] number of strings with a space in between and a '\0' at the end
+
+	//	Now build the string itself
+	fprintf(stdout, "Building the string\n");
+	for (index = startingPosition; (index < (startingPosition + countStrings)); index++)
 	{
-		startingPosition = lastPosition;
-		for (newArgc = 0; lastPosition < argc; lastPosition++, newArgc++)
+		if (index >= (startingPosition + 1))
+			strcat(newString, " ");
+		strcat(newString, stringsToCombine[index]);
+	}
+	//strcat(newString, "\0");
+	fprintf(stdout, "%s\n", newString);
+	return newString;
+}
+
+char*** CreateCommandList(structArgs args)
+{
+	int argIndex = 0;
+	int cmdIndex = 0;
+	char** newCommands = (char**)calloc(3, sizeof(args));
+	char* newCommand = (char*)calloc(1, sizeof(args));
+
+	for (argIndex = 0; argIndex < args.argc; argIndex++)
+	{
+		if (strcmp(args.argv[argIndex], ",") == 0)
 		{
-			if (argv[lastPosition] == ",")
-			{
-				lastPosition++;
-				cmdArgs[commandNumber].argc = newArgc;
-				int i = 0;
-				for (i = 0; i < newArgc; i++)
-				{
-					newArgv[i] = (char*)malloc(sizeof(argv[startingPosition + i])+1);
-					newArgv[i] = argv[startingPosition + i];
-					strcat(command, newArgv[i]);
-					strcat(command, " ");
-				}
-				structArgs newCmd = { newArgc, newArgv, command };
-				cmdArgs[commandNumber] = newCmd;
-				commandNumber++;
-				break;
-			}
-		}		
-	} while (lastPosition < argc);
-	return cmdArgs;
+			newCommands[cmdIndex] = newCommand;
+			cmdIndex++;
+		}
+		else
+		{
+			if (argIndex > 0)
+				strcat(newCommand, " ");
+			strcat(newCommand, args.argv[argIndex]);
+		}
+	}
+	fprintf(stdout, "Command[0] = %s\n", newCommands[0]);
 }
 
 void	SendCommand(int destFork, structArgs cmdArgs)	//	Used to send a complete command to a child process
