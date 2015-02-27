@@ -1,0 +1,69 @@
+CIS 161 Chapter 4 Part II assignment
+
+Choose one of the following projects:
+
+#1
+Write a program that calculates a person's pay given the following:
+Pay for day 1 is 1 cent. Each day worked, the pay doubles.
+Your program should ask for the number of days worked and then print a
+pay schedule. Here is a sample run.
+
+How many days do you plan on working? [10]
+
+DAY	  PAY	    TOTAL
+ 1       0.01        0.01
+ 2       0.02        0.03
+ 3       0.04        0.07
+ 4       0.08        0.15
+ 5       0.16        0.31
+ 6       0.32        0.63
+ 7       0.64        1.27
+ 8       1.28        2.55
+ 9       2.56        5.11
+10       5.12       10.23
+
+Process returned 0 (0x0)   execution time : 0.016 s
+Press any key to continue.
+
+Your program should not allow the user to enter a number greater than 31
+or less than 5. Your program should continue to prompt the user for a valid
+number of days if they enter a number outside the range 5-31.
+
+
+#2
+Write a program that asks the user to enter a series of numbers (one at a time)
+where all the numbers are between 1 and 100 inclusive. The user ends the program 
+by entering a number outside that range. The program should then output all the 
+integers from the smallest integer entered to the largest integer entered.
+
+Here is a sample run:
+
+Please enter a series of integers between 1 and 100 inclusive.
+Entering a number outside that range will end the input process:?[45]
+?[55]
+?[44]
+?[56]
+?[-1]
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+
+Process returned 0 (0x0)   execution time : 23.078 s
+Press any key to continue.
+
+Make sure you document your code extensively!
+Your name should appear as the first line of your documentation.
+The chapter number should be the second line of your documentation.
+Make sure your program is user friendly.
+Turn in one copy of your code and at least three different "runs."
+

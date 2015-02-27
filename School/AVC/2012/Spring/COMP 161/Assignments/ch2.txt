@@ -1,0 +1,11 @@
+CIS 161 Chapter 2 assignment
+
+Choose one of the following projects from the exercises on pages 126-127:
+
+1, 2, 4, 5 OR 6
+
+Make sure you document your code extensively!
+Your Name, Chapter number and project number should appear at the top of your code.
+Make sure your program is user friendly.
+Turn in one copy of your code and at least three different "runs."
+

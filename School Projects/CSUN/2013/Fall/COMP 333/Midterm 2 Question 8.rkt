@@ -1,0 +1,6 @@
+(define x
+  (lambda (a b)
+    (let ([z '()])
+      (begin
+        (set! z (cons 'a z))
+        (set! z (cons 'b z))))))

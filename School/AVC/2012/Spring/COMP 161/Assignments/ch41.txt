@@ -1,0 +1,41 @@
+CIS 161 Chapter 4 Part I assignment
+
+Choose one of the following projects:
+
+#1.
+In one state, single residents are subject to the following income tax:
+INCOME			AMOUNT OF TAX
+Not over $750		1% of income
+$750-$2,249		$7.50		plus 2% of amount over &750
+$2,250-$3,749		$37.50		plus 3% of amount over $2,250
+$3,750-$5,249		$82.50		plus 4% of amount over $3,750
+$5,250-$6,999		$142.50		plus 5% of amount over $5,250
+$7,000+			$230.00		plus 6% of amount over $7,000
+
+Write a program that asks the user to enter the amount of taxable income 
+and displays the tax due.
+
+
+#2
+Write a program that asks the user to enter four integers. Using ONLY
+4 if statements, the program should output the largest and smallest 
+integer.
+
+
+#3
+Write a program that asks the user to enter 2 dates. The program should
+then output the dates in order.
+Here is a sample run. User input is enclosed in brackets:
+
+Enter first date (mm/dd/yyyy): [03/06/2008]
+Enter second date (mm/dd/yyyy): [05/17/2007]
+05/17/2007 is earlier than 03/06/2008
+
+
+
+Make sure you document your code extensively!
+Your name should appear as the first line of your documentation.
+The chapter number should be the second line of your documentation.
+Make sure your program is user friendly.
+Turn in one copy of your code and at least three different "runs."
+

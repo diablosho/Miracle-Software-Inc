@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace_user>
+	<active_project>
+		<label>CardGame</label>
+	</active_project>
+	<projects>
+		<project>
+			<label>CardGame</label>
+			<showfiles>false</showfiles>
+			<fileitem>
+				<path>Play.java</path>
+				<collapsedfolds>0</collapsedfolds>
+			</fileitem>
+		</project>
+	</projects>
+	<open_files>
+		<docitem>
+			<path>..\..\Lab 4\LetterCounter.java</path>
+			<source>true</source>
+			<index>0</index>
+			<active>true</active>
+		</docitem>
+	</open_files>
+</workspace_user>

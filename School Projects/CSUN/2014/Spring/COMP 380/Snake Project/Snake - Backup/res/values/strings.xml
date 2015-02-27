@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Snake</string>
+	<string name="action_settings">Settings</string>
+	<string name="new_game">Start new game</string>
+	<string name="exit_game">Exit game</string>
+	<string name="valueX">X:  </string>
+	<string name="valueY">Y:  </string>
+	<string name="valueZ">Z:  </string>
+	<string name="valueCos">cos(Theta/2):  </string>
+	<string name="valueHeading">Heading</string>
+
+</resources>

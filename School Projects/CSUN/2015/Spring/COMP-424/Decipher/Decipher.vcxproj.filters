@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Homework">
+      <UniqueIdentifier>{32da614b-76c1-4feb-a7aa-10f38bf1b7d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Lectures">
+      <UniqueIdentifier>{a898077e-a2df-4fdd-9b36-930c9469cbba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Book">
+      <UniqueIdentifier>{401b7798-6512-4c22-bbce-752252fd9842}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Decipher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DecipherDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DlgProxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TABLE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Decipher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DecipherDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TABLE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Decipher.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Decipher.reg" />
+    <None Include="res\Decipher.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Resources\Book\Security in Computing (5th Edition).pdf">
+      <Filter>Resource Files\Book</Filter>
+    </None>
+    <None Include="..\Resources\Homework\Homework 1 Instructions.pdf">
+      <Filter>Resource Files\Homework</Filter>
+    </None>
+    <None Include="..\Resources\Lectures\Lecture 1 - Intro.pdf">
+      <Filter>Resource Files\Lectures</Filter>
+    </None>
+    <None Include="..\Resources\Lectures\Lecture 2 - Basics of Encryption.pdf">
+      <Filter>Resource Files\Lectures</Filter>
+    </None>
+    <None Include="..\Resources\Lectures\Lecture 3 - More Details of Encryption Techniques.pdf">
+      <Filter>Resource Files\Lectures</Filter>
+    </None>
+    <None Include="..\Resources\Lectures\Lecture 4.1 - Digital Signatures and SSH.pdf">
+      <Filter>Resource Files\Lectures</Filter>
+    </None>
+    <None Include="..\Resources\Lectures\Lecture 4.2 - Computer Network Fundamentals.pdf">
+      <Filter>Resource Files\Lectures</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Decipher.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Decipher.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\Homework\Example of Columnar Substitution.jpg">
+      <Filter>Resource Files\Homework</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+CIS 161 Chapter 3 assignment
+
+Choose "one" of the following projects:
+
+Page 183 #2
+Page 183 #3
+Page 183 #4
+
+Make sure you document your code extensively!
+Your Name, Chapter number and project number should appear at the top of your code.
+Make sure your program is user friendly.
+Turn in one copy of your code and at least three different "runs."
+

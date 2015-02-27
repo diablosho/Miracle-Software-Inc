@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0050)http://avconline.avc.edu/rmummaw/cis111/xxtra3.htm -->
+<HTML><HEAD><TITLE>CIS 111 page</TITLE>
+<META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 9.00.8112.16434"></HEAD>
+<BODY bgColor=#ffffff text=#000000><FONT 
+face="Verdana, Arial, Helvetica, sans-serif">
+<TABLE>
+  <CAPTION></CAPTION>
+  <TBODY>
+  <TR>
+    <TD vAlign=top><IMG border=0 align=top src="Lab%203_files/leftbar.gif" 
+      width=78 height=690> </TD>
+    <TD vAlign=top>
+      <P align=center><FONT 
+      face="Verdana, Arial, Helvetica, sans-serif"><B><FONT size=4>Extra Credit 
+      Assignments<BR>THIS ONE WORTH 16 POINTS</FONT></B></FONT> 
+      <BLOCKQUOTE>
+        <P>#3 - Create a project that defines the following four classes:<BR>
+        <UL>Card<BR>Deck<BR>Hand<BR>Play<BR><IMG 
+          src="Lab%203_files/xtra3.jpg"> </UL>
+        <TABLE border=1>
+          <TBODY>
+          <TR>
+            <TD align=center>CLASS CARD</TD></TR>
+          <TR>
+            <TD>
+              <P>fields: 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR bgColor=yellow>
+                    <TD>type </TD>
+                    <TD>purpose </TD></TR>
+                  <TR>
+                    <TD>int</TD>
+                    <TD>suit value</TD></TR>
+                  <TR>
+                    <TD>String</TD>
+                    <TD>suit name</TD></TR>
+                  <TR>
+                    <TD>int</TD>
+                    <TD>card value</TD></TR>
+                  <TR>
+                    <TD>String</TD>
+                    <TD>card name</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+              <P>methods 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR vAlign=top bgColor=yellow>
+                    <TD>name</TD>
+                    <TD>return&nbsp;type </TD>
+                    <TD>purpose </TD>
+                    <TD>parameter(s)</TD></TR>
+                  <TR vAlign=top>
+                    <TD><I>constructor</I></TD>
+                    <TD>&nbsp;</TD>
+                    <TD>Constructs an object of type Card</TD>
+                    <TD>An <B>int</B> representing suit value (0-3) and an 
+                      <B>int</B> representing the card value (0-12)</TD></TR>
+                  <TR vAlign=top>
+                    <TD>getValue</TD>
+                    <TD>int</TD>
+                    <TD>returns the card's value</TD>
+                    <TD>none</TD></TR>
+                  <TR vAlign=top>
+                    <TD>toString</TD>
+                    <TD>String</TD>
+                    <TD>overides the Object class' toString method to return a 
+                      string saying <I>cardValue</I> of <I>suitValue</I><BR>for 
+                      example "<B>Ace</B> of <B>Spades</B>"</TD>
+                    <TD>none</TD></TR></TBODY></TABLE></BLOCKQUOTE></TD></TR></TBODY></TABLE>
+        <P>
+        <TABLE border=1>
+          <TBODY>
+          <TR>
+            <TD align=center>CLASS DECK</TD></TR>
+          <TR>
+            <TD>
+              <P>fields: 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR bgColor=yellow>
+                    <TD>type </TD>
+                    <TD>purpose </TD></TR>
+                  <TR>
+                    <TD>Card[]</TD>
+                    <TD>an array to hold the 52 cards</TD></TR>
+                  <TR>
+                    <TD>int</TD>
+                    <TD>the index of the next card on top of the 
+                  deck</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+              <P>methods 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR vAlign=top bgColor=yellow>
+                    <TD>name</TD>
+                    <TD>return&nbsp;type </TD>
+                    <TD>purpose </TD>
+                    <TD>parameter(s)</TD></TR>
+                  <TR vAlign=top>
+                    <TD><I>constructor</I></TD>
+                    <TD>&nbsp;</TD>
+                    <TD>Constructs an object of type Deck which will contain 
+                      52 cards</TD>
+                    <TD>none</TD></TR>
+                  <TR vAlign=top>
+                    <TD>shuffle</TD>
+                    <TD>none</TD>
+                    <TD>puts the cards in random order</TD>
+                    <TD>none</TD></TR>
+                  <TR vAlign=top>
+                    <TD>deal</TD>
+                    <TD>Card</TD>
+                    <TD>returns the next card off the top of the deck</TD>
+                    <TD>none</TD></TR></TBODY></TABLE></BLOCKQUOTE></TD></TR></TBODY></TABLE>
+        <P>
+        <TABLE border=1>
+          <TBODY>
+          <TR>
+            <TD align=center>CLASS HAND</TD></TR>
+          <TR>
+            <TD>
+              <P>fields: 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR bgColor=yellow>
+                    <TD>type </TD>
+                    <TD>purpose </TD></TR>
+                  <TR>
+                    <TD>Card[]</TD>
+                    <TD>an array of Cards</TD></TR>
+                  <TR>
+                    <TD>int</TD>
+                    <TD>the index of the next position in the hand to receive 
+                      a card</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+              <P>methods 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR vAlign=top bgColor=yellow>
+                    <TD>name</TD>
+                    <TD>return&nbsp;type </TD>
+                    <TD>purpose </TD>
+                    <TD>parameter(s)</TD></TR>
+                  <TR vAlign=top>
+                    <TD><I>constructor</I></TD>
+                    <TD>&nbsp;</TD>
+                    <TD>Constructs an object of type Hand</TD>
+                    <TD>none</TD></TR>
+                  <TR vAlign=top>
+                    <TD>receiveCard</TD>
+                    <TD>void</TD>
+                    <TD>gets a card and puts it in the hand</TD>
+                    <TD>aCard</TD></TR>
+                  <TR vAlign=top>
+                    <TD>print</TD>
+                    <TD>void</TD>
+                    <TD>outputs the hand to the terminal window</TD>
+                    <TD>none</TD></TR></TBODY></TABLE></BLOCKQUOTE></TD></TR></TBODY></TABLE>
+        <P>
+        <TABLE border=1>
+          <TBODY>
+          <TR>
+            <TD align=center>CLASS PLAY</TD></TR>
+          <TR>
+            <TD>
+              <P>fields: 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR bgColor=yellow>
+                    <TD>type </TD>
+                    <TD>purpose </TD></TR>
+                  <TR>
+                    <TD>Hand</TD>
+                    <TD>one hand of cards(5 cards)</TD></TR>
+                  <TR>
+                    <TD>Deck</TD>
+                    <TD>a deck of 52 cards</TD></TR></TBODY></TABLE></BLOCKQUOTE>
+              <P>methods 
+              <BLOCKQUOTE>
+                <TABLE border=1>
+                  <TBODY>
+                  <TR vAlign=top bgColor=yellow>
+                    <TD>name</TD>
+                    <TD>return&nbsp;type </TD>
+                    <TD>purpose </TD>
+                    <TD>parameter(s)</TD></TR>
+                  <TR vAlign=top>
+                    <TD><I>constructor</I></TD>
+                    <TD>&nbsp;</TD>
+                    <TD>Constructs an object of type Play</TD>
+                    <TD>none</TD></TR>
+                  <TR vAlign=top>
+                    <TD>deal</TD>
+                    <TD>void</TD>
+                    <TD>deals 5 cards to the hand from the deck and prints the 
+                      hand</TD>
+                    <TD>none</TD></TR></TBODY></TABLE></BLOCKQUOTE></TD></TR></TBODY></TABLE>
+        <P></P></BLOCKQUOTE>
+      <P>Turn in your source code and several sample runs of the deal method in 
+      a Play object. 
+      <BLOCKQUOTE></BLOCKQUOTE></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=top>&nbsp;</TD></TR></TBODY></TABLE></FONT></BODY></HTML>
