@@ -1,0 +1,108 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: AndroidManifest.xml
+SHA1-Digest: 7XfRcm4QSO8/8W867IfFTcoj/Ug=
+
+Name: assets/crystal3.png
+SHA1-Digest: iExtjQiHi6U2mDFCWSeTuViVH+k=
+
+Name: assets/logotemp.png
+SHA1-Digest: /Ai25CQQILs15smO4zLpIdFVsVA=
+
+Name: assets/ScoreNumbers.png
+SHA1-Digest: 6wHQZlY8ICF72Z8EowwbPDCFOls=
+
+Name: assets/backgroundimage.png
+SHA1-Digest: 7LxE009nVp4OWzGp64izk8qLZ2U=
+
+Name: assets/helpme2.png
+SHA1-Digest: qJlgQTlnRn6fCoaXP1yU1jf84sc=
+
+Name: assets/clicksound.ogg
+SHA1-Digest: iS4Zp9RrZYQT/9xsY1t/twWtrZo=
+
+Name: assets/GameMenu.png
+SHA1-Digest: 75hMruoXQTdknNLIxfJOlFhqG4Y=
+
+Name: assets/tail2.png
+SHA1-Digest: GlYLPSKTUz6N2/gc/cW9FUAbg14=
+
+Name: assets/eatingsound.ogg
+SHA1-Digest: JodJ3tbHEoZyK5ZIQ6DfuzUUfgw=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: Vj/qhxk8ic8FE0/kT6E3vgRJ4mE=
+
+Name: assets/helpme3.png
+SHA1-Digest: qYu9P9i0tjssN3u9iRwJQoaF6Vk=
+
+Name: res/drawable-hdpi/wood.jpg
+SHA1-Digest: xT8wKdyVEdryYYFMaJBQFIyr6G8=
+
+Name: assets/headisright.png
+SHA1-Digest: zS4Cm5xwfcdwAQeXpByroEvF9NQ=
+
+Name: assets/headisup.png
+SHA1-Digest: 8zW3pX/MZdaX3Kmv2Fxqw8g+6JU=
+
+Name: assets/Body.png
+SHA1-Digest: PZPJeeoksHFQD8/zmOXsojE95ws=
+
+Name: assets/GameEnd.png
+SHA1-Digest: Ve+alogQH7ROnoUA8Oc9YitssoM=
+
+Name: assets/crystal1.png
+SHA1-Digest: TxX19yEBjh+xhxhwoBaEEx9cGos=
+
+Name: assets/headisdown.png
+SHA1-Digest: G1jhGCu5mDNfDc4a1LmYpOnN4f8=
+
+Name: assets/pausemenu.png
+SHA1-Digest: Z2uqn7/03pTNrIfJVj8bgJnTqOI=
+
+Name: res/layout/main.xml
+SHA1-Digest: 1EoYUgZa/7iecfxziOGOciiDyjs=
+
+Name: assets/headisleft.png
+SHA1-Digest: PYYJMthsVQiJDznJ0hQthSq/Beo=
+
+Name: assets/GetReady.png
+SHA1-Digest: sX8DRShLI7dRGA6IQofugN+0RxA=
+
+Name: assets/Snake-Ball.png
+SHA1-Digest: e/J8nQIIBYyEyU5/HT4tS2jVcfQ=
+
+Name: assets/buttons.png
+SHA1-Digest: DOeYP890za23kyPx3Rd9CjpceMI=
+
+Name: assets/helpme1.png
+SHA1-Digest: QIRr74j0jKwLF3eqiAD5Ko0FBl4=
+
+Name: assets/logoimage.png
+SHA1-Digest: A0HCWEWUtEjiX0L6eJ0YijFzeQc=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: 7Ft/Rirt+l/JRX2KjDREScdbCZk=
+
+Name: assets/music.ogg
+SHA1-Digest: TzA5IzSUksaa6sgGAFVLgUgj6kI=
+
+Name: assets/crystal2.png
+SHA1-Digest: VQ7kjAYShB3O2ZHcmVjJ0olppSY=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: i7vxaosoiS+9HzKB7ZgIsXMYRLY=
+
+Name: resources.arsc
+SHA1-Digest: 7lah3mRPBhU1yZ514xPGLcbUC2w=
+
+Name: assets/bitesound.ogg
+SHA1-Digest: JodJ3tbHEoZyK5ZIQ6DfuzUUfgw=
+
+Name: res/drawable-hdpi/ball.png
+SHA1-Digest: iiiU2wxvuHo/DTteXzd4P/HA8J8=
+
+Name: classes.dex
+SHA1-Digest: KJpIWSLupcOge03DZykcRVyKWFo=
+

@@ -1,0 +1,23 @@
+CIS 161 Chapter 5 assignment
+
+Choose one of the following projects:
+
+#1
+Write a program containing a function called isPrime. The function should accept
+and integer as it's argument and should return a 0 if the argument is NOT a prime 
+number, or a 1 if the argument IS a prime number. Main should ask the user for
+integers and say whether they are prime or not. The user can end the program by
+entering a negative number.
+
+#2
+Create a function that will return the nth Fibonacci Number where n is an
+integer passed as an argument. Demonstrate your function in a program (see
+option #1)
+  
+
+Make sure you document your code extensively!
+Your name should appear as the first line of your documentation.
+The chapter number shold be the second line of your documentation.
+Make sure your program is user friendly.
+Turn in one copy of your code and at least three different "runs."
+

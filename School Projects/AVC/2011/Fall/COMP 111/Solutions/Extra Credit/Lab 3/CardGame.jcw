@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workspace>
+	<settings>
+		<label>CardGame</label>
+	</settings>
+	<users>
+		<user>
+			<path>CardGame.jcu</path>
+		</user>
+	</users>
+	<projects>
+		<project>
+			<path>CardGame.jcp</path>
+		</project>
+	</projects>
+</workspace>

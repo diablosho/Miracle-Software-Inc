@@ -1,0 +1,29 @@
+// x86Decoder.idl : type library source for x86Decoder.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (x86Decoder.tlb).
+
+[ uuid(3CC3C9D1-793F-462E-820B-1ACB691A3074), version(1.0) ]
+library x86Decoder
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for Cx86DecoderDoc
+	
+	[ uuid(EFBBCEA4-0BAC-4206-9374-FC501F356050) ]
+	dispinterface Ix86Decoder
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for Cx86DecoderDoc
+	
+	[ uuid(84346B18-F0CE-4E3D-AE5E-7D6FFE62A8A8) ]
+	coclass Cx86DecoderDoc
+	{
+		[default] dispinterface Ix86Decoder;
+	};
+};

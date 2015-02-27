@@ -1,0 +1,27 @@
+body #front_feature {
+	height: 250px; margin-top: 0px; margin-bottom: 0px;
+}
+body #front_feature .feature_block {
+	border-radius: 4px; width: 1000px; height: 250px; background-color: rgb(25, 25, 25); -webkit-border-radius: 4px; -moz-border-radius: 4px;
+}
+body #front_feature .feature_block .the_pad {
+	padding: 40px 80px 40px 40px;
+}
+#front_feature .feature_block .content {
+	color: rgb(204, 204, 204);
+}
+#front_feature .feature_block .content p.large {
+	color: rgb(204, 204, 204);
+}
+#front_feature .feature_block .content h1 {
+	font-size: 36px;
+}
+#front_feature .feature_block .content ul {
+	padding-left: 20px; list-style-type: square;
+}
+body .centerbox {
+	height: 250px; box-orient: horizontal; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; -moz-box-orient: horizontal; -moz-box-pack: center; -moz-box-align: center; box-pack: center; box-align: center;
+}
+body .centerbox > div {
+	-webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1;
+}

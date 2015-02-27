@@ -1,0 +1,29 @@
+// WIN32DASM.idl : type library source for WIN32DASM.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (WIN32DASM.tlb).
+
+[ uuid(5F769B43-4181-4079-A598-837992B72EF7), version(1.0) ]
+library WIN32DASM
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CWIN32DASMDoc
+	
+	[ uuid(E170FB6E-2D27-43FE-B739-EDBE47D09CA2) ]
+	dispinterface IWIN32DASM
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CWIN32DASMDoc
+	
+	[ uuid(D862AE9D-E012-4E1C-8038-C428F70AA430) ]
+	coclass CWIN32DASMDoc
+	{
+		[default] dispinterface IWIN32DASM;
+	};
+};

@@ -1,0 +1,16 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\x86DASM.Document = x86DASM.Document
+
+
+HKEY_CLASSES_ROOT\x86DASM.Document\CLSID = {93C1A70C-95B6-4DFC-BCED-D8EB97D94F69}
+
+HKEY_CLASSES_ROOT\CLSID\{93C1A70C-95B6-4DFC-BCED-D8EB97D94F69} = x86DASM.Document
+HKEY_CLASSES_ROOT\CLSID\{93C1A70C-95B6-4DFC-BCED-D8EB97D94F69}\ProgId = x86DASM.Document
+
+HKEY_CLASSES_ROOT\CLSID\{93C1A70C-95B6-4DFC-BCED-D8EB97D94F69}\LocalServer32 = x86DASM.EXE

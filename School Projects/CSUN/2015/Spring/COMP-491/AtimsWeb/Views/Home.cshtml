@@ -1,0 +1,11 @@
+﻿<h1>Home // Debugging</h1>
+
+<p> This page will automatically redirect the user to their chosen homepage. For now its use is as a debug readout</p>
+
+<h1> Modules</h1>
+<h3> Module Name Map (listing all entries)</h3>
+<span ng-repeat="module in moduleNameMap"> {{module.AppAO_Module_Name}} </span>
+<h3> Module Menu (Raw JSON of $scope.moduleMenu)</h3>
+<p>{{moduleMenu}}</p>
+<h3> First Module </h3>
+<span>{{moduleMenu[0]}}</span>
